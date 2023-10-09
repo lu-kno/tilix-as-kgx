@@ -14,7 +14,7 @@ else
   d_link_args = []
 endif
 
-project_id = 'com.gexperts.Tilix'
+project_id = 'com.gexperts.TilixAsKgx'
 project_name = meson.project_name()
 
 gnome = import('gnome')
@@ -106,7 +106,7 @@ subdir('po')
 subdir('data')
 
 # Build & Test
-executable('tilix',
+executable('kgx',
     [tilix_sources, gresource],
     include_directories : sources_dir,
     dependencies : [gtkd_dep,
@@ -120,7 +120,7 @@ executable('tilix',
     install : true
 )
 
-tilix_test_exe = executable('tilix_test',
+kgx_test_exe = executable('kgx_test',
     [tilix_sources],
     include_directories : [sources_dir],
     dependencies : [gtkd_dep,
@@ -130,6 +130,6 @@ tilix_test_exe = executable('tilix_test',
     link_args: d_link_args,
     d_unittest: true
 )
-test('tilix_test', tilix_test_exe)
+test('kgx_test', kgx_test_exe)
 
 meson.add_install_script('meson_post_install.py')
